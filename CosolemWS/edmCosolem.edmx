@@ -1,0 +1,936 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbCosolemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="dbCosolemModelStoreContainer">
+          <EntitySet Name="tbEmpleado" EntityType="dbCosolemModel.Store.tbEmpleado" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbEmpresa" EntityType="dbCosolemModel.Store.tbEmpresa" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbModulo" EntityType="dbCosolemModel.Store.tbModulo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbOpcion" EntityType="dbCosolemModel.Store.tbOpcion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbPersona" EntityType="dbCosolemModel.Store.tbPersona" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbTienda" EntityType="dbCosolemModel.Store.tbTienda" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbUsuario" EntityType="dbCosolemModel.Store.tbUsuario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbUsuarioOpcion" EntityType="dbCosolemModel.Store.tbUsuarioOpcion" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_tbEmpleado_tbEmpleado" Association="dbCosolemModel.Store.FK_tbEmpleado_tbEmpleado">
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+            <End Role="tbEmpleado1" EntitySet="tbEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleado_tbEmpresa" Association="dbCosolemModel.Store.FK_tbEmpleado_tbEmpresa">
+            <End Role="tbEmpresa" EntitySet="tbEmpresa" />
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleado_tbPersona" Association="dbCosolemModel.Store.FK_tbEmpleado_tbPersona">
+            <End Role="tbPersona" EntitySet="tbPersona" />
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleado_tbTienda" Association="dbCosolemModel.Store.FK_tbEmpleado_tbTienda">
+            <End Role="tbTienda" EntitySet="tbTienda" />
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleadoOpcion_tbOpcion" Association="dbCosolemModel.Store.FK_tbEmpleadoOpcion_tbOpcion">
+            <End Role="tbOpcion" EntitySet="tbOpcion" />
+            <End Role="tbUsuarioOpcion" EntitySet="tbUsuarioOpcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbOpcion_tbModulo" Association="dbCosolemModel.Store.FK_tbOpcion_tbModulo">
+            <End Role="tbModulo" EntitySet="tbModulo" />
+            <End Role="tbOpcion" EntitySet="tbOpcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbTienda_tbEmpresa" Association="dbCosolemModel.Store.FK_tbTienda_tbEmpresa">
+            <End Role="tbEmpresa" EntitySet="tbEmpresa" />
+            <End Role="tbTienda" EntitySet="tbTienda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbUsuario_tbEmpleado" Association="dbCosolemModel.Store.FK_tbUsuario_tbEmpleado">
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+            <End Role="tbUsuario" EntitySet="tbUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbUsuarioOpcion_tbUsuario" Association="dbCosolemModel.Store.FK_tbUsuarioOpcion_tbUsuario">
+            <End Role="tbUsuario" EntitySet="tbUsuario" />
+            <End Role="tbUsuarioOpcion" EntitySet="tbUsuarioOpcion" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbEmpleado">
+          <Key>
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Name="idEmpresa" Type="bigint" Nullable="false" />
+          <Property Name="idTienda" Type="bigint" Nullable="false" />
+          <Property Name="idEmpleado" Type="bigint" Nullable="false" />
+          <Property Name="idTipoContrato" Type="int" Nullable="false" />
+          <Property Name="esAfiliado" Type="bit" Nullable="false" />
+          <Property Name="idCargo" Type="bigint" Nullable="false" />
+          <Property Name="avisoEntrada" Type="date" />
+          <Property Name="correoElectronico" Type="varchar(max)" />
+          <Property Name="foto" Type="varbinary(max)" />
+          <Property Name="salarioBruto" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="bonificacion" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="idTipoNomina" Type="int" Nullable="false" />
+          <Property Name="idMedioCancelacion" Type="int" Nullable="false" />
+          <Property Name="idEntidadBancaria" Type="int" />
+          <Property Name="numeroCuenta" Type="varchar(max)" />
+          <Property Name="avisoSalida" Type="date" />
+          <Property Name="idSuperior" Type="bigint" />
+          <Property Name="estadoRegistro" Type="bit" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="bigint" Nullable="false" />
+          <Property Name="terminalIngreso" Type="varchar(max)" Nullable="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="datetime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="bigint" />
+          <Property Name="terminalUltimaModificacion" Type="varchar(max)" />
+          <Property Name="fechaHoraEliminacion" Type="datetime" />
+          <Property Name="idUsuarioEliminacion" Type="bigint" />
+          <Property Name="terminalEliminacion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbEmpresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ruc" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="razonSocial" Type="varchar(max)" Nullable="false" />
+          <Property Name="representanteLegal" Type="varchar(max)" />
+          <Property Name="marca" Type="varchar(max)" />
+          <Property Name="nombreComercial" Type="varchar(max)" />
+          <Property Name="dominio" Type="varchar(max)" Nullable="false" />
+          <Property Name="idCanton" Type="int" Nullable="false" />
+          <Property Name="direccionCompleta" Type="varchar(max)" Nullable="false" />
+          <Property Name="obligadoLlevarContabilidad" Type="bit" Nullable="false" />
+          <Property Name="estadoRegistro" Type="bit" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="bigint" Nullable="false" />
+          <Property Name="terminalIngreso" Type="varchar(max)" Nullable="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="datetime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="bigint" />
+          <Property Name="terminalUltimaModificacion" Type="varchar(max)" />
+          <Property Name="fechaHoraEliminacion" Type="datetime" />
+          <Property Name="idUsuarioEliminacion" Type="bigint" />
+          <Property Name="terminalEliminacion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbModulo">
+          <Key>
+            <PropertyRef Name="idModulo" />
+          </Key>
+          <Property Name="idModulo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbOpcion">
+          <Key>
+            <PropertyRef Name="idOpcion" />
+          </Key>
+          <Property Name="idModulo" Type="int" Nullable="false" />
+          <Property Name="idOpcion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="varchar(max)" Nullable="false" />
+          <Property Name="nombreFormulario" Type="varchar(max)" />
+          <Property Name="parametros" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbPersona">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idTipoPersona" Type="int" Nullable="false" />
+          <Property Name="idTipoIdentificacion" Type="int" Nullable="false" />
+          <Property Name="numeroIdentificacion" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="primerNombre" Type="varchar" MaxLength="50" />
+          <Property Name="segundoNombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCompleto" Type="varchar(max)" StoreGeneratedPattern="Computed" />
+          <Property Name="razonSocial" Type="varchar(max)" />
+          <Property Name="idSexo" Type="int" />
+          <Property Name="fechaNacimiento" Type="date" />
+          <Property Name="idEstadoCivil" Type="bigint" />
+          <Property Name="correoElectronico" Type="varchar(max)" />
+          <Property Name="estadoRegistro" Type="bit" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="bigint" Nullable="false" />
+          <Property Name="terminalIngreso" Type="varchar(max)" Nullable="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="datetime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="bigint" />
+          <Property Name="terminalUltimaModificacion" Type="varchar(max)" />
+          <Property Name="fechaHoraEliminacion" Type="datetime" />
+          <Property Name="idUsuarioEliminacion" Type="bigint" />
+          <Property Name="terminalEliminacion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbTienda">
+          <Key>
+            <PropertyRef Name="idTienda" />
+          </Key>
+          <Property Name="idEmpresa" Type="bigint" Nullable="false" />
+          <Property Name="idTienda" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="varchar(max)" Nullable="false" />
+          <Property Name="idCanton" Type="int" Nullable="false" />
+          <Property Name="direccion" Type="varchar(max)" Nullable="false" />
+          <Property Name="telefono" Type="varchar(max)" Nullable="false" />
+          <Property Name="correoElectronico" Type="varchar(max)" Nullable="false" />
+          <Property Name="porcentajeIVA" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="estadoRegistro" Type="bit" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="bigint" Nullable="false" />
+          <Property Name="terminalIngreso" Type="varchar(max)" Nullable="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="datetime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="bigint" />
+          <Property Name="terminalUltimaModificacion" Type="varchar(max)" />
+          <Property Name="fechaHoraEliminacion" Type="datetime" />
+          <Property Name="idUsuarioEliminacion" Type="bigint" />
+          <Property Name="terminalEliminacion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbUsuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="bigint" Nullable="false" />
+          <Property Name="nombreUsuario" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="contrasena" Type="varchar(max)" Nullable="false" />
+          <Property Name="contrasenaNuncaExpira" Type="bit" Nullable="false" />
+          <Property Name="cambiarContrasena" Type="bit" Nullable="false" />
+          <Property Name="estadoRegistro" Type="bit" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="bigint" Nullable="false" />
+          <Property Name="terminalIngreso" Type="varchar(max)" Nullable="false" />
+          <Property Name="fechaHoraPrimerAcceso" Type="datetime" />
+          <Property Name="terminalPrimerAcceso" Type="varchar(max)" />
+          <Property Name="fechaHoraGeneracionContrasena" Type="datetime" Nullable="false" />
+          <Property Name="idUsuarioGeneracionContrasena" Type="bigint" Nullable="false" />
+          <Property Name="terminalGeneracionContrasena" Type="varchar(max)" Nullable="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="datetime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="bigint" />
+          <Property Name="terminalUltimaModificacion" Type="varchar(max)" />
+          <Property Name="fechaHoraEliminacion" Type="datetime" />
+          <Property Name="idUsuarioEliminacion" Type="bigint" />
+          <Property Name="terminalEliminacion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbUsuarioOpcion">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+            <PropertyRef Name="idOpcion" />
+          </Key>
+          <Property Name="idUsuario" Type="bigint" Nullable="false" />
+          <Property Name="idOpcion" Type="int" Nullable="false" />
+          <Property Name="tieneAcceso" Type="bit" Nullable="false" />
+          <Property Name="estadoRegistro" Type="bit" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="bigint" Nullable="false" />
+          <Property Name="terminalIngreso" Type="varchar(max)" Nullable="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="datetime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="bigint" />
+          <Property Name="terminalUltimaModificacion" Type="varchar(max)" />
+          <Property Name="fechaHoraEliminacion" Type="datetime" />
+          <Property Name="idUsuarioEliminacion" Type="bigint" />
+          <Property Name="terminalEliminacion" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_tbEmpleado_tbEmpleado">
+          <End Role="tbEmpleado" Type="dbCosolemModel.Store.tbEmpleado" Multiplicity="0..1" />
+          <End Role="tbEmpleado1" Type="dbCosolemModel.Store.tbEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="tbEmpleado1">
+              <PropertyRef Name="idSuperior" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleado_tbEmpresa">
+          <End Role="tbEmpresa" Type="dbCosolemModel.Store.tbEmpresa" Multiplicity="1" />
+          <End Role="tbEmpleado" Type="dbCosolemModel.Store.tbEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="tbEmpleado">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleado_tbPersona">
+          <End Role="tbPersona" Type="dbCosolemModel.Store.tbPersona" Multiplicity="1" />
+          <End Role="tbEmpleado" Type="dbCosolemModel.Store.tbEmpleado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbPersona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="tbEmpleado">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleado_tbTienda">
+          <End Role="tbTienda" Type="dbCosolemModel.Store.tbTienda" Multiplicity="1" />
+          <End Role="tbEmpleado" Type="dbCosolemModel.Store.tbEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTienda">
+              <PropertyRef Name="idTienda" />
+            </Principal>
+            <Dependent Role="tbEmpleado">
+              <PropertyRef Name="idTienda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleadoOpcion_tbOpcion">
+          <End Role="tbOpcion" Type="dbCosolemModel.Store.tbOpcion" Multiplicity="1" />
+          <End Role="tbUsuarioOpcion" Type="dbCosolemModel.Store.tbUsuarioOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbOpcion">
+              <PropertyRef Name="idOpcion" />
+            </Principal>
+            <Dependent Role="tbUsuarioOpcion">
+              <PropertyRef Name="idOpcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbOpcion_tbModulo">
+          <End Role="tbModulo" Type="dbCosolemModel.Store.tbModulo" Multiplicity="1" />
+          <End Role="tbOpcion" Type="dbCosolemModel.Store.tbOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbModulo">
+              <PropertyRef Name="idModulo" />
+            </Principal>
+            <Dependent Role="tbOpcion">
+              <PropertyRef Name="idModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbTienda_tbEmpresa">
+          <End Role="tbEmpresa" Type="dbCosolemModel.Store.tbEmpresa" Multiplicity="1" />
+          <End Role="tbTienda" Type="dbCosolemModel.Store.tbTienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="tbTienda">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbUsuario_tbEmpleado">
+          <End Role="tbEmpleado" Type="dbCosolemModel.Store.tbEmpleado" Multiplicity="1" />
+          <End Role="tbUsuario" Type="dbCosolemModel.Store.tbUsuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="tbUsuario">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbUsuarioOpcion_tbUsuario">
+          <End Role="tbUsuario" Type="dbCosolemModel.Store.tbUsuario" Multiplicity="1" />
+          <End Role="tbUsuarioOpcion" Type="dbCosolemModel.Store.tbUsuarioOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="tbUsuarioOpcion">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbCosolemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="dbCosolemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbEmpresa" EntityType="dbCosolemModel.tbEmpresa" />
+          <EntitySet Name="tbModulo" EntityType="dbCosolemModel.tbModulo" />
+          <EntitySet Name="tbOpcion" EntityType="dbCosolemModel.tbOpcion" />
+          <EntitySet Name="tbPersona" EntityType="dbCosolemModel.tbPersona" />
+          <EntitySet Name="tbTienda" EntityType="dbCosolemModel.tbTienda" />
+          <EntitySet Name="tbUsuario" EntityType="dbCosolemModel.tbUsuario" />
+          <AssociationSet Name="FK_tbTienda_tbEmpresa" Association="dbCosolemModel.FK_tbTienda_tbEmpresa">
+            <End Role="tbEmpresa" EntitySet="tbEmpresa" />
+            <End Role="tbTienda" EntitySet="tbTienda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbOpcion_tbModulo" Association="dbCosolemModel.FK_tbOpcion_tbModulo">
+            <End Role="tbModulo" EntitySet="tbModulo" />
+            <End Role="tbOpcion" EntitySet="tbOpcion" />
+          </AssociationSet>
+          <EntitySet Name="tbEmpleado" EntityType="dbCosolemModel.tbEmpleado" />
+          <AssociationSet Name="FK_tbEmpleado_tbEmpleado" Association="dbCosolemModel.FK_tbEmpleado_tbEmpleado">
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+            <End Role="tbEmpleado1" EntitySet="tbEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleado_tbEmpresa" Association="dbCosolemModel.FK_tbEmpleado_tbEmpresa">
+            <End Role="tbEmpresa" EntitySet="tbEmpresa" />
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleado_tbPersona" Association="dbCosolemModel.FK_tbEmpleado_tbPersona">
+            <End Role="tbPersona" EntitySet="tbPersona" />
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleado_tbTienda" Association="dbCosolemModel.FK_tbEmpleado_tbTienda">
+            <End Role="tbTienda" EntitySet="tbTienda" />
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbUsuario_tbEmpleado" Association="dbCosolemModel.FK_tbUsuario_tbEmpleado">
+            <End Role="tbEmpleado" EntitySet="tbEmpleado" />
+            <End Role="tbUsuario" EntitySet="tbUsuario" />
+          </AssociationSet>
+          <EntitySet Name="tbUsuarioOpcion" EntityType="dbCosolemModel.tbUsuarioOpcion" />
+          <AssociationSet Name="FK_tbEmpleadoOpcion_tbOpcion" Association="dbCosolemModel.FK_tbEmpleadoOpcion_tbOpcion">
+            <End Role="tbOpcion" EntitySet="tbOpcion" />
+            <End Role="tbUsuarioOpcion" EntitySet="tbUsuarioOpcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbUsuarioOpcion_tbUsuario" Association="dbCosolemModel.FK_tbUsuarioOpcion_tbUsuario">
+            <End Role="tbUsuario" EntitySet="tbUsuario" />
+            <End Role="tbUsuarioOpcion" EntitySet="tbUsuarioOpcion" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbEmpresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ruc" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="razonSocial" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="representanteLegal" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="marca" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="nombreComercial" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="dominio" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="idCanton" Type="Int32" Nullable="false" />
+          <Property Name="direccionCompleta" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="obligadoLlevarContabilidad" Type="Boolean" Nullable="false" />
+          <Property Name="estadoRegistro" Type="Boolean" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="DateTime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="Int64" Nullable="false" />
+          <Property Name="terminalIngreso" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="DateTime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="Int64" />
+          <Property Name="terminalUltimaModificacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraEliminacion" Type="DateTime" />
+          <Property Name="idUsuarioEliminacion" Type="Int64" />
+          <Property Name="terminalEliminacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tbTienda" Relationship="dbCosolemModel.FK_tbTienda_tbEmpresa" FromRole="tbEmpresa" ToRole="tbTienda" />
+          <NavigationProperty Name="tbEmpleado" Relationship="dbCosolemModel.FK_tbEmpleado_tbEmpresa" FromRole="tbEmpresa" ToRole="tbEmpleado" />
+        </EntityType>
+        <EntityType Name="tbModulo">
+          <Key>
+            <PropertyRef Name="idModulo" />
+          </Key>
+          <Property Name="idModulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tbOpcion" Relationship="dbCosolemModel.FK_tbOpcion_tbModulo" FromRole="tbModulo" ToRole="tbOpcion" />
+        </EntityType>
+        <EntityType Name="tbOpcion">
+          <Key>
+            <PropertyRef Name="idOpcion" />
+          </Key>
+          <Property Name="idModulo" Type="Int32" Nullable="false" />
+          <Property Name="idOpcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="nombreFormulario" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="parametros" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tbModulo" Relationship="dbCosolemModel.FK_tbOpcion_tbModulo" FromRole="tbOpcion" ToRole="tbModulo" />
+          <NavigationProperty Name="tbUsuarioOpcion" Relationship="dbCosolemModel.FK_tbEmpleadoOpcion_tbOpcion" FromRole="tbOpcion" ToRole="tbUsuarioOpcion" />
+        </EntityType>
+        <EntityType Name="tbPersona">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTipoPersona" Type="Int32" Nullable="false" />
+          <Property Name="idTipoIdentificacion" Type="Int32" Nullable="false" />
+          <Property Name="numeroIdentificacion" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="primerNombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="segundoNombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="nombreCompleto" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="razonSocial" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="idSexo" Type="Int32" />
+          <Property Name="fechaNacimiento" Type="DateTime" />
+          <Property Name="idEstadoCivil" Type="Int64" />
+          <Property Name="correoElectronico" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="estadoRegistro" Type="Boolean" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="DateTime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="Int64" Nullable="false" />
+          <Property Name="terminalIngreso" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="DateTime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="Int64" />
+          <Property Name="terminalUltimaModificacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraEliminacion" Type="DateTime" />
+          <Property Name="idUsuarioEliminacion" Type="Int64" />
+          <Property Name="terminalEliminacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tbEmpleado" Relationship="dbCosolemModel.FK_tbEmpleado_tbPersona" FromRole="tbPersona" ToRole="tbEmpleado" />
+        </EntityType>
+        <EntityType Name="tbTienda">
+          <Key>
+            <PropertyRef Name="idTienda" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int64" Nullable="false" />
+          <Property Name="idTienda" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="idCanton" Type="Int32" Nullable="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="correoElectronico" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="porcentajeIVA" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="estadoRegistro" Type="Boolean" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="DateTime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="Int64" Nullable="false" />
+          <Property Name="terminalIngreso" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="DateTime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="Int64" />
+          <Property Name="terminalUltimaModificacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraEliminacion" Type="DateTime" />
+          <Property Name="idUsuarioEliminacion" Type="Int64" />
+          <Property Name="terminalEliminacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tbEmpresa" Relationship="dbCosolemModel.FK_tbTienda_tbEmpresa" FromRole="tbTienda" ToRole="tbEmpresa" />
+          <NavigationProperty Name="tbEmpleado" Relationship="dbCosolemModel.FK_tbEmpleado_tbTienda" FromRole="tbTienda" ToRole="tbEmpleado" />
+        </EntityType>
+        <EntityType Name="tbUsuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int64" Nullable="false" />
+          <Property Name="nombreUsuario" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="contrasena" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="contrasenaNuncaExpira" Type="Boolean" Nullable="false" />
+          <Property Name="cambiarContrasena" Type="Boolean" Nullable="false" />
+          <Property Name="estadoRegistro" Type="Boolean" Nullable="false" />
+          <Property Name="fechaHoraIngreso" Type="DateTime" Nullable="false" />
+          <Property Name="idUsuarioIngreso" Type="Int64" Nullable="false" />
+          <Property Name="terminalIngreso" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraPrimerAcceso" Type="DateTime" />
+          <Property Name="terminalPrimerAcceso" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraGeneracionContrasena" Type="DateTime" Nullable="false" />
+          <Property Name="idUsuarioGeneracionContrasena" Type="Int64" Nullable="false" />
+          <Property Name="terminalGeneracionContrasena" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraUltimaModificacion" Type="DateTime" />
+          <Property Name="idUsuarioUltimaModificacion" Type="Int64" />
+          <Property Name="terminalUltimaModificacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="fechaHoraEliminacion" Type="DateTime" />
+          <Property Name="idUsuarioEliminacion" Type="Int64" />
+          <Property Name="terminalEliminacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tbEmpleado" Relationship="dbCosolemModel.FK_tbUsuario_tbEmpleado" FromRole="tbUsuario" ToRole="tbEmpleado" />
+          <NavigationProperty Name="tbUsuarioOpcion" Relationship="dbCosolemModel.FK_tbUsuarioOpcion_tbUsuario" FromRole="tbUsuario" ToRole="tbUsuarioOpcion" />
+        </EntityType>
+        <Association Name="FK_tbTienda_tbEmpresa">
+          <End Role="tbEmpresa" Type="dbCosolemModel.tbEmpresa" Multiplicity="1" />
+          <End Role="tbTienda" Type="dbCosolemModel.tbTienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="tbTienda">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbOpcion_tbModulo">
+          <End Role="tbModulo" Type="dbCosolemModel.tbModulo" Multiplicity="1" />
+          <End Role="tbOpcion" Type="dbCosolemModel.tbOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbModulo">
+              <PropertyRef Name="idModulo" />
+            </Principal>
+            <Dependent Role="tbOpcion">
+              <PropertyRef Name="idModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbEmpleado">
+          <Key>
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Type="Int64" Name="idEmpresa" Nullable="false" />
+          <Property Type="Int64" Name="idTienda" Nullable="false" />
+          <Property Type="Int64" Name="idEmpleado" Nullable="false" />
+          <Property Type="Int32" Name="idTipoContrato" Nullable="false" />
+          <Property Type="Boolean" Name="esAfiliado" Nullable="false" />
+          <Property Type="Int64" Name="idCargo" Nullable="false" />
+          <Property Type="DateTime" Name="avisoEntrada" />
+          <Property Type="String" Name="correoElectronico" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="foto" MaxLength="Max" FixedLength="false" />
+          <Property Type="Decimal" Name="salarioBruto" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="bonificacion" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="idTipoNomina" Nullable="false" />
+          <Property Type="Int32" Name="idMedioCancelacion" Nullable="false" />
+          <Property Type="Int32" Name="idEntidadBancaria" />
+          <Property Type="String" Name="numeroCuenta" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="avisoSalida" />
+          <Property Type="Int64" Name="idSuperior" />
+          <Property Type="Boolean" Name="estadoRegistro" Nullable="false" />
+          <Property Type="DateTime" Name="fechaHoraIngreso" Nullable="false" />
+          <Property Type="Int64" Name="idUsuarioIngreso" Nullable="false" />
+          <Property Type="String" Name="terminalIngreso" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fechaHoraUltimaModificacion" />
+          <Property Type="Int64" Name="idUsuarioUltimaModificacion" />
+          <Property Type="String" Name="terminalUltimaModificacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fechaHoraEliminacion" />
+          <Property Type="Int64" Name="idUsuarioEliminacion" />
+          <Property Type="String" Name="terminalEliminacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbEmpleado1" Relationship="dbCosolemModel.FK_tbEmpleado_tbEmpleado" FromRole="tbEmpleado" ToRole="tbEmpleado1" />
+          <NavigationProperty Name="tbEmpleado2" Relationship="dbCosolemModel.FK_tbEmpleado_tbEmpleado" FromRole="tbEmpleado1" ToRole="tbEmpleado" />
+          <NavigationProperty Name="tbEmpresa" Relationship="dbCosolemModel.FK_tbEmpleado_tbEmpresa" FromRole="tbEmpleado" ToRole="tbEmpresa" />
+          <NavigationProperty Name="tbPersona" Relationship="dbCosolemModel.FK_tbEmpleado_tbPersona" FromRole="tbEmpleado" ToRole="tbPersona" />
+          <NavigationProperty Name="tbTienda" Relationship="dbCosolemModel.FK_tbEmpleado_tbTienda" FromRole="tbEmpleado" ToRole="tbTienda" />
+          <NavigationProperty Name="tbUsuario" Relationship="dbCosolemModel.FK_tbUsuario_tbEmpleado" FromRole="tbEmpleado" ToRole="tbUsuario" />
+        </EntityType>
+        <Association Name="FK_tbEmpleado_tbEmpleado">
+          <End Type="dbCosolemModel.tbEmpleado" Role="tbEmpleado" Multiplicity="0..1" />
+          <End Type="dbCosolemModel.tbEmpleado" Role="tbEmpleado1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="tbEmpleado1">
+              <PropertyRef Name="idSuperior" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleado_tbEmpresa">
+          <End Type="dbCosolemModel.tbEmpresa" Role="tbEmpresa" Multiplicity="1" />
+          <End Type="dbCosolemModel.tbEmpleado" Role="tbEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="tbEmpleado">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleado_tbPersona">
+          <End Type="dbCosolemModel.tbPersona" Role="tbPersona" Multiplicity="1" />
+          <End Type="dbCosolemModel.tbEmpleado" Role="tbEmpleado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbPersona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="tbEmpleado">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleado_tbTienda">
+          <End Type="dbCosolemModel.tbTienda" Role="tbTienda" Multiplicity="1" />
+          <End Type="dbCosolemModel.tbEmpleado" Role="tbEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTienda">
+              <PropertyRef Name="idTienda" />
+            </Principal>
+            <Dependent Role="tbEmpleado">
+              <PropertyRef Name="idTienda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbUsuario_tbEmpleado">
+          <End Type="dbCosolemModel.tbEmpleado" Role="tbEmpleado" Multiplicity="1" />
+          <End Type="dbCosolemModel.tbUsuario" Role="tbUsuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="tbUsuario">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbUsuarioOpcion">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+            <PropertyRef Name="idOpcion" />
+          </Key>
+          <Property Type="Int64" Name="idUsuario" Nullable="false" />
+          <Property Type="Int32" Name="idOpcion" Nullable="false" />
+          <Property Type="Boolean" Name="tieneAcceso" Nullable="false" />
+          <Property Type="Boolean" Name="estadoRegistro" Nullable="false" />
+          <Property Type="DateTime" Name="fechaHoraIngreso" Nullable="false" />
+          <Property Type="Int64" Name="idUsuarioIngreso" Nullable="false" />
+          <Property Type="String" Name="terminalIngreso" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fechaHoraUltimaModificacion" />
+          <Property Type="Int64" Name="idUsuarioUltimaModificacion" />
+          <Property Type="String" Name="terminalUltimaModificacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fechaHoraEliminacion" />
+          <Property Type="Int64" Name="idUsuarioEliminacion" />
+          <Property Type="String" Name="terminalEliminacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbOpcion" Relationship="dbCosolemModel.FK_tbEmpleadoOpcion_tbOpcion" FromRole="tbUsuarioOpcion" ToRole="tbOpcion" />
+          <NavigationProperty Name="tbUsuario" Relationship="dbCosolemModel.FK_tbUsuarioOpcion_tbUsuario" FromRole="tbUsuarioOpcion" ToRole="tbUsuario" />
+        </EntityType>
+        <Association Name="FK_tbEmpleadoOpcion_tbOpcion">
+          <End Type="dbCosolemModel.tbOpcion" Role="tbOpcion" Multiplicity="1" />
+          <End Type="dbCosolemModel.tbUsuarioOpcion" Role="tbUsuarioOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbOpcion">
+              <PropertyRef Name="idOpcion" />
+            </Principal>
+            <Dependent Role="tbUsuarioOpcion">
+              <PropertyRef Name="idOpcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbUsuarioOpcion_tbUsuario">
+          <End Type="dbCosolemModel.tbUsuario" Role="tbUsuario" Multiplicity="1" />
+          <End Type="dbCosolemModel.tbUsuarioOpcion" Role="tbUsuarioOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="tbUsuarioOpcion">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbCosolemModelStoreContainer" CdmEntityContainer="dbCosolemEntities">
+          <EntitySetMapping Name="tbEmpresa">
+            <EntityTypeMapping TypeName="dbCosolemModel.tbEmpresa">
+              <MappingFragment StoreEntitySet="tbEmpresa">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="ruc" ColumnName="ruc" />
+                <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+                <ScalarProperty Name="representanteLegal" ColumnName="representanteLegal" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="nombreComercial" ColumnName="nombreComercial" />
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+                <ScalarProperty Name="direccionCompleta" ColumnName="direccionCompleta" />
+                <ScalarProperty Name="obligadoLlevarContabilidad" ColumnName="obligadoLlevarContabilidad" />
+                <ScalarProperty Name="estadoRegistro" ColumnName="estadoRegistro" />
+                <ScalarProperty Name="fechaHoraIngreso" ColumnName="fechaHoraIngreso" />
+                <ScalarProperty Name="idUsuarioIngreso" ColumnName="idUsuarioIngreso" />
+                <ScalarProperty Name="terminalIngreso" ColumnName="terminalIngreso" />
+                <ScalarProperty Name="fechaHoraUltimaModificacion" ColumnName="fechaHoraUltimaModificacion" />
+                <ScalarProperty Name="idUsuarioUltimaModificacion" ColumnName="idUsuarioUltimaModificacion" />
+                <ScalarProperty Name="terminalUltimaModificacion" ColumnName="terminalUltimaModificacion" />
+                <ScalarProperty Name="fechaHoraEliminacion" ColumnName="fechaHoraEliminacion" />
+                <ScalarProperty Name="idUsuarioEliminacion" ColumnName="idUsuarioEliminacion" />
+                <ScalarProperty Name="terminalEliminacion" ColumnName="terminalEliminacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbModulo">
+            <EntityTypeMapping TypeName="dbCosolemModel.tbModulo">
+              <MappingFragment StoreEntitySet="tbModulo">
+                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbOpcion">
+            <EntityTypeMapping TypeName="dbCosolemModel.tbOpcion">
+              <MappingFragment StoreEntitySet="tbOpcion">
+                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+                <ScalarProperty Name="idOpcion" ColumnName="idOpcion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombreFormulario" ColumnName="nombreFormulario" />
+                <ScalarProperty Name="parametros" ColumnName="parametros" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPersona">
+            <EntityTypeMapping TypeName="dbCosolemModel.tbPersona">
+              <MappingFragment StoreEntitySet="tbPersona">
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="idTipoPersona" ColumnName="idTipoPersona" />
+                <ScalarProperty Name="idTipoIdentificacion" ColumnName="idTipoIdentificacion" />
+                <ScalarProperty Name="numeroIdentificacion" ColumnName="numeroIdentificacion" />
+                <ScalarProperty Name="primerNombre" ColumnName="primerNombre" />
+                <ScalarProperty Name="segundoNombre" ColumnName="segundoNombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+                <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+                <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="idEstadoCivil" ColumnName="idEstadoCivil" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="estadoRegistro" ColumnName="estadoRegistro" />
+                <ScalarProperty Name="fechaHoraIngreso" ColumnName="fechaHoraIngreso" />
+                <ScalarProperty Name="idUsuarioIngreso" ColumnName="idUsuarioIngreso" />
+                <ScalarProperty Name="terminalIngreso" ColumnName="terminalIngreso" />
+                <ScalarProperty Name="fechaHoraUltimaModificacion" ColumnName="fechaHoraUltimaModificacion" />
+                <ScalarProperty Name="idUsuarioUltimaModificacion" ColumnName="idUsuarioUltimaModificacion" />
+                <ScalarProperty Name="terminalUltimaModificacion" ColumnName="terminalUltimaModificacion" />
+                <ScalarProperty Name="fechaHoraEliminacion" ColumnName="fechaHoraEliminacion" />
+                <ScalarProperty Name="idUsuarioEliminacion" ColumnName="idUsuarioEliminacion" />
+                <ScalarProperty Name="terminalEliminacion" ColumnName="terminalEliminacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTienda">
+            <EntityTypeMapping TypeName="dbCosolemModel.tbTienda">
+              <MappingFragment StoreEntitySet="tbTienda">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idTienda" ColumnName="idTienda" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="porcentajeIVA" ColumnName="porcentajeIVA" />
+                <ScalarProperty Name="estadoRegistro" ColumnName="estadoRegistro" />
+                <ScalarProperty Name="fechaHoraIngreso" ColumnName="fechaHoraIngreso" />
+                <ScalarProperty Name="idUsuarioIngreso" ColumnName="idUsuarioIngreso" />
+                <ScalarProperty Name="terminalIngreso" ColumnName="terminalIngreso" />
+                <ScalarProperty Name="fechaHoraUltimaModificacion" ColumnName="fechaHoraUltimaModificacion" />
+                <ScalarProperty Name="idUsuarioUltimaModificacion" ColumnName="idUsuarioUltimaModificacion" />
+                <ScalarProperty Name="terminalUltimaModificacion" ColumnName="terminalUltimaModificacion" />
+                <ScalarProperty Name="fechaHoraEliminacion" ColumnName="fechaHoraEliminacion" />
+                <ScalarProperty Name="idUsuarioEliminacion" ColumnName="idUsuarioEliminacion" />
+                <ScalarProperty Name="terminalEliminacion" ColumnName="terminalEliminacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUsuario">
+            <EntityTypeMapping TypeName="dbCosolemModel.tbUsuario">
+              <MappingFragment StoreEntitySet="tbUsuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="contrasenaNuncaExpira" ColumnName="contrasenaNuncaExpira" />
+                <ScalarProperty Name="cambiarContrasena" ColumnName="cambiarContrasena" />
+                <ScalarProperty Name="estadoRegistro" ColumnName="estadoRegistro" />
+                <ScalarProperty Name="fechaHoraIngreso" ColumnName="fechaHoraIngreso" />
+                <ScalarProperty Name="idUsuarioIngreso" ColumnName="idUsuarioIngreso" />
+                <ScalarProperty Name="terminalIngreso" ColumnName="terminalIngreso" />
+                <ScalarProperty Name="fechaHoraPrimerAcceso" ColumnName="fechaHoraPrimerAcceso" />
+                <ScalarProperty Name="terminalPrimerAcceso" ColumnName="terminalPrimerAcceso" />
+                <ScalarProperty Name="fechaHoraGeneracionContrasena" ColumnName="fechaHoraGeneracionContrasena" />
+                <ScalarProperty Name="idUsuarioGeneracionContrasena" ColumnName="idUsuarioGeneracionContrasena" />
+                <ScalarProperty Name="terminalGeneracionContrasena" ColumnName="terminalGeneracionContrasena" />
+                <ScalarProperty Name="fechaHoraUltimaModificacion" ColumnName="fechaHoraUltimaModificacion" />
+                <ScalarProperty Name="idUsuarioUltimaModificacion" ColumnName="idUsuarioUltimaModificacion" />
+                <ScalarProperty Name="terminalUltimaModificacion" ColumnName="terminalUltimaModificacion" />
+                <ScalarProperty Name="fechaHoraEliminacion" ColumnName="fechaHoraEliminacion" />
+                <ScalarProperty Name="idUsuarioEliminacion" ColumnName="idUsuarioEliminacion" />
+                <ScalarProperty Name="terminalEliminacion" ColumnName="terminalEliminacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbEmpleado">
+            <EntityTypeMapping TypeName="dbCosolemModel.tbEmpleado">
+              <MappingFragment StoreEntitySet="tbEmpleado">
+                <ScalarProperty Name="terminalEliminacion" ColumnName="terminalEliminacion" />
+                <ScalarProperty Name="idUsuarioEliminacion" ColumnName="idUsuarioEliminacion" />
+                <ScalarProperty Name="fechaHoraEliminacion" ColumnName="fechaHoraEliminacion" />
+                <ScalarProperty Name="terminalUltimaModificacion" ColumnName="terminalUltimaModificacion" />
+                <ScalarProperty Name="idUsuarioUltimaModificacion" ColumnName="idUsuarioUltimaModificacion" />
+                <ScalarProperty Name="fechaHoraUltimaModificacion" ColumnName="fechaHoraUltimaModificacion" />
+                <ScalarProperty Name="terminalIngreso" ColumnName="terminalIngreso" />
+                <ScalarProperty Name="idUsuarioIngreso" ColumnName="idUsuarioIngreso" />
+                <ScalarProperty Name="fechaHoraIngreso" ColumnName="fechaHoraIngreso" />
+                <ScalarProperty Name="estadoRegistro" ColumnName="estadoRegistro" />
+                <ScalarProperty Name="idSuperior" ColumnName="idSuperior" />
+                <ScalarProperty Name="avisoSalida" ColumnName="avisoSalida" />
+                <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
+                <ScalarProperty Name="idEntidadBancaria" ColumnName="idEntidadBancaria" />
+                <ScalarProperty Name="idMedioCancelacion" ColumnName="idMedioCancelacion" />
+                <ScalarProperty Name="idTipoNomina" ColumnName="idTipoNomina" />
+                <ScalarProperty Name="bonificacion" ColumnName="bonificacion" />
+                <ScalarProperty Name="salarioBruto" ColumnName="salarioBruto" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="avisoEntrada" ColumnName="avisoEntrada" />
+                <ScalarProperty Name="idCargo" ColumnName="idCargo" />
+                <ScalarProperty Name="esAfiliado" ColumnName="esAfiliado" />
+                <ScalarProperty Name="idTipoContrato" ColumnName="idTipoContrato" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="idTienda" ColumnName="idTienda" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUsuarioOpcion">
+            <EntityTypeMapping TypeName="dbCosolemModel.tbUsuarioOpcion">
+              <MappingFragment StoreEntitySet="tbUsuarioOpcion">
+                <ScalarProperty Name="terminalEliminacion" ColumnName="terminalEliminacion" />
+                <ScalarProperty Name="idUsuarioEliminacion" ColumnName="idUsuarioEliminacion" />
+                <ScalarProperty Name="fechaHoraEliminacion" ColumnName="fechaHoraEliminacion" />
+                <ScalarProperty Name="terminalUltimaModificacion" ColumnName="terminalUltimaModificacion" />
+                <ScalarProperty Name="idUsuarioUltimaModificacion" ColumnName="idUsuarioUltimaModificacion" />
+                <ScalarProperty Name="fechaHoraUltimaModificacion" ColumnName="fechaHoraUltimaModificacion" />
+                <ScalarProperty Name="terminalIngreso" ColumnName="terminalIngreso" />
+                <ScalarProperty Name="idUsuarioIngreso" ColumnName="idUsuarioIngreso" />
+                <ScalarProperty Name="fechaHoraIngreso" ColumnName="fechaHoraIngreso" />
+                <ScalarProperty Name="estadoRegistro" ColumnName="estadoRegistro" />
+                <ScalarProperty Name="tieneAcceso" ColumnName="tieneAcceso" />
+                <ScalarProperty Name="idOpcion" ColumnName="idOpcion" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="edmCosolem">
+        <EntityTypeShape EntityType="dbCosolemModel.tbEmpresa" Width="1.5" PointX="0.75" PointY="0.875" Height="0.39999999999999991" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbCosolemModel.tbModulo" Width="1.5" PointX="5.25" PointY="3.875" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbCosolemModel.tbOpcion" Width="1.5" PointX="7.5" PointY="3.875" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbCosolemModel.tbPersona" Width="1.5" PointX="3" PointY="3.875" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbCosolemModel.tbTienda" Width="1.5" PointX="3" PointY="0.875" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbCosolemModel.tbUsuario" Width="1.5" PointX="7.5" PointY="0.875" Height="0.40000000000000036" IsExpanded="false" />
+        <AssociationConnector Association="dbCosolemModel.FK_tbTienda_tbEmpresa" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.0750000000000002" />
+          <ConnectorPoint PointX="3" PointY="1.0750000000000002" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbCosolemModel.FK_tbOpcion_tbModulo" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="4.075" />
+          <ConnectorPoint PointX="7.5" PointY="4.075" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dbCosolemModel.tbEmpleado" Width="1.5" PointX="5.25" PointY="0.875" Height="0.40000000000000036" IsExpanded="false" />
+        <AssociationConnector Association="dbCosolemModel.FK_tbEmpleado_tbEmpleado" >
+          <ConnectorPoint PointX="5.7641538461598643" PointY="1.2750000000000004" />
+          <ConnectorPoint PointX="5.7641538461598643" PointY="1.5250000001862647" />
+          <ConnectorPoint PointX="6.2470769230706189" PointY="1.5250000001862647" />
+          <ConnectorPoint PointX="6.2470769230706189" PointY="1.2750000000000004" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbCosolemModel.FK_tbEmpleado_tbEmpresa" >
+          <ConnectorPoint PointX="2.2499999998137352" PointY="1.275" />
+          <ConnectorPoint PointX="2.625" PointY="1.6500000001862647" />
+          <ConnectorPoint PointX="4.8685384615324443" PointY="1.6500000001862647" />
+          <ConnectorPoint PointX="5.25" PointY="1.2685384617187085" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbCosolemModel.FK_tbEmpleado_tbPersona" >
+          <ConnectorPoint PointX="4.4999999998137357" PointY="3.875" />
+          <ConnectorPoint PointX="4.875" PointY="3.4999999998137348" />
+          <ConnectorPoint PointX="4.875" PointY="1.6567682309617995" />
+          <ConnectorPoint PointX="5.2567682309617991" PointY="1.2750000000000004" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbCosolemModel.FK_tbEmpleado_tbTienda" >
+          <ConnectorPoint PointX="4.5" PointY="1.0405167307662284" />
+          <ConnectorPoint PointX="5.25" PointY="1.0405167307662284" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbCosolemModel.FK_tbUsuario_tbEmpleado" >
+          <ConnectorPoint PointX="6.75" PointY="1.0750000000000002" />
+          <ConnectorPoint PointX="7.5" PointY="1.0750000000000002" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dbCosolemModel.tbUsuarioOpcion" Width="1.5" PointX="9.75" PointY="0.875" Height="0.39999999999999991" IsExpanded="false" />
+        <AssociationConnector Association="dbCosolemModel.FK_tbEmpleadoOpcion_tbOpcion" >
+          <ConnectorPoint PointX="9" PointY="4.075" />
+          <ConnectorPoint PointX="10.5" PointY="4.075" />
+          <ConnectorPoint PointX="10.5" PointY="1.275" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbCosolemModel.FK_tbUsuarioOpcion_tbUsuario" >
+          <ConnectorPoint PointX="9" PointY="1.075" />
+          <ConnectorPoint PointX="9.75" PointY="1.075" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
